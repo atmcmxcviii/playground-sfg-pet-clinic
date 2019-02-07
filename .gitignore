@@ -1,4 +1,6 @@
 /target/
+/sfg-pet-clinic-data/target/
+/sfg-pet-clinic-web/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
