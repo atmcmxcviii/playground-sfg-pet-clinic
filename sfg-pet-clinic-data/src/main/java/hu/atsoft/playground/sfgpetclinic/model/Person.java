@@ -1,6 +1,7 @@
 package hu.atsoft.playground.sfgpetclinic.model;
 
-public class Person {
+public class Person extends BaseEntity {
+	private static final long serialVersionUID = 4430082738780971381L;
 	
 	private String firstName;
 	private String lastName;

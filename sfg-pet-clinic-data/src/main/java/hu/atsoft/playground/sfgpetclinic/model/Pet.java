@@ -2,8 +2,9 @@ package hu.atsoft.playground.sfgpetclinic.model;
 
 import java.time.LocalDate;
 
-public class Pet {
-
+public class Pet extends BaseEntity {
+	private static final long serialVersionUID = 4604556469322491948L;
+	
 	private PetType petType;
 	private Owner owner;
 	private LocalDate birthDate;
