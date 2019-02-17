@@ -4,6 +4,7 @@ import java.util.Set;
 
 import hu.atsoft.playground.sfgpetclinic.model.Specialty;
 import hu.atsoft.playground.sfgpetclinic.services.SpecialtyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hu.atsoft.playground.sfgpetclinic.model.Vet;
@@ -12,6 +13,7 @@ import hu.atsoft.playground.sfgpetclinic.services.VetService;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
+	@Autowired
 	private final SpecialtyService specialtyService;
 
 	public VetServiceMap(SpecialtyService specialtyService) {
