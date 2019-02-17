@@ -5,6 +5,7 @@ import java.util.Set;
 import hu.atsoft.playground.sfgpetclinic.model.Pet;
 import hu.atsoft.playground.sfgpetclinic.services.PetService;
 import hu.atsoft.playground.sfgpetclinic.services.PetTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hu.atsoft.playground.sfgpetclinic.model.Owner;
@@ -13,7 +14,9 @@ import hu.atsoft.playground.sfgpetclinic.services.OwnerService;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
+	@Autowired
 	private final PetTypeService petTypeService;
+	@Autowired
 	private final PetService petService;
 
 	public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
