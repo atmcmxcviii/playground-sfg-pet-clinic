@@ -19,10 +19,15 @@ public class OwnerController {
 		System.out.println("new owner service");
 	}
 
-	@RequestMapping({ "", "index", "index.html", "find" })
+	@RequestMapping({ "", "index", "index.html" })
 	public String listOwners(Model model) {
 		model.addAttribute("owners", ownerService.findAll());
 		
 		return "owners/index";
+	}
+
+	@RequestMapping("find")
+	public String find() {
+		return "notimplemented";
 	}
 }
