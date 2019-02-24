@@ -1,14 +1,10 @@
 package hu.atsoft.playground.sfgpetclinic.bootstrap;
 
 import hu.atsoft.playground.sfgpetclinic.model.*;
-import hu.atsoft.playground.sfgpetclinic.services.PetTypeService;
-import hu.atsoft.playground.sfgpetclinic.services.SpecialtyService;
+import hu.atsoft.playground.sfgpetclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import hu.atsoft.playground.sfgpetclinic.services.OwnerService;
-import hu.atsoft.playground.sfgpetclinic.services.VetService;
 
 import java.time.LocalDate;
 
@@ -23,12 +19,16 @@ public class DataLoader implements CommandLineRunner {
 	private final PetTypeService petTypeService;
 	@Autowired
 	private final SpecialtyService specialtyService;
+	@Autowired
+	private final VisitService visitService;
 	
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+					  SpecialtyService specialtyService, VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialtyService = specialtyService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class DataLoader implements CommandLineRunner {
 
 		Pet fionasCat = new Pet();
 		fionasCat.setName("Just Cat");
-		fionasCat.setOwner(owner2);;
+		fionasCat.setOwner(owner2);
 		fionasCat.setBirthDate(LocalDate.now());
 		fionasCat.setPetType(savedCatPetType);
 		owner2.getPets().add(fionasCat);
@@ -97,6 +97,15 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner2);
 
 		System.out.println("Loaded owners...");
+
+		Visit catVisit = new Visit();
+		catVisit.setPet(fionasCat);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("Sneezy Kitty");
+
+		visitService.save(catVisit);
+
+		System.out.println("Loaded visits...");
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
