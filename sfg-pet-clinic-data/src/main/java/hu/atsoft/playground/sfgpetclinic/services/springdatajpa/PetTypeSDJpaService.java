@@ -34,13 +34,13 @@ public class PetTypeSDJpaService implements PetTypeService {
     }
 
     @Override
-    public PetType save(PetType pet) {
-        return petTypeRepository.save(pet);
+    public PetType save(PetType petType) {
+        return petTypeRepository.save(petType);
     }
 
     @Override
-    public void delete(PetType pet) {
-        petTypeRepository.delete(pet);
+    public void delete(PetType petType) {
+        petTypeRepository.delete(petType);
     }
 
     @Override

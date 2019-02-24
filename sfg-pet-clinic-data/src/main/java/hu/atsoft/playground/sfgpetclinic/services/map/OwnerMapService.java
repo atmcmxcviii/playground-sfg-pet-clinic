@@ -12,14 +12,14 @@ import hu.atsoft.playground.sfgpetclinic.model.Owner;
 import hu.atsoft.playground.sfgpetclinic.services.OwnerService;
 
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Autowired
 	private final PetTypeService petTypeService;
 	@Autowired
 	private final PetService petService;
 
-	public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+	public OwnerMapService(PetTypeService petTypeService, PetService petService) {
 		this.petTypeService = petTypeService;
 		this.petService = petService;
 	}
