@@ -6,12 +6,14 @@ import hu.atsoft.playground.sfgpetclinic.model.Pet;
 import hu.atsoft.playground.sfgpetclinic.services.PetService;
 import hu.atsoft.playground.sfgpetclinic.services.PetTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import hu.atsoft.playground.sfgpetclinic.model.Owner;
 import hu.atsoft.playground.sfgpetclinic.services.OwnerService;
 
 @Service
+@Profile({ "default", "map" })
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Autowired

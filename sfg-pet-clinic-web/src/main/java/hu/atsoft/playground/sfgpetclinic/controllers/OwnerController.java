@@ -16,7 +16,6 @@ public class OwnerController {
 	
 	public OwnerController(OwnerService ownerService) {
 		this.ownerService = ownerService;
-		System.out.println("new owner service");
 	}
 
 	@RequestMapping({ "", "index", "index.html" })

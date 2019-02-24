@@ -5,12 +5,14 @@ import java.util.Set;
 import hu.atsoft.playground.sfgpetclinic.model.Specialty;
 import hu.atsoft.playground.sfgpetclinic.services.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import hu.atsoft.playground.sfgpetclinic.model.Vet;
 import hu.atsoft.playground.sfgpetclinic.services.VetService;
 
 @Service
+@Profile({ "default", "map" })
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Autowired
